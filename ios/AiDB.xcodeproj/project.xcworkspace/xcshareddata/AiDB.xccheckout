@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D6A659F3-AE12-4527-97DC-3DAAD5F35DE6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AiDB</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1E534A7D-C81F-4A0A-8EFD-7BDD514AE631</key>
+		<string>svn://10.0.42.110/DbAbstraction/iOS/branches/dev</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AiDB.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1E534A7D-C81F-4A0A-8EFD-7BDD514AE631</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>1E534A7D-C81F-4A0A-8EFD-7BDD514AE631</key>
+		<string>svn://10.0.42.110/DbAbstraction</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>svn://10.0.42.110/DbAbstraction/iOS/branches/dev/AiDB.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1E534A7D-C81F-4A0A-8EFD-7BDD514AE631</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
+			<string>iOS/branches</string>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTagsRelativeLocationKey</key>
+			<string>iOS/tags</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>iOS/trunk</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1E534A7D-C81F-4A0A-8EFD-7BDD514AE631</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AiDB</string>
+		</dict>
+	</array>
+</dict>
+</plist>
