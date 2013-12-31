@@ -249,71 +249,68 @@ $(document).ready(function(){initNavTree('_main_view_controller_8m_source.html',
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        </div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        [<span class="keyword">self</span>.dataTableView deselectRowAtIndexPath:[<span class="keyword">self</span>.dataTableView indexPathForSelectedRow] animated:YES];</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="comment">// skip animation</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="comment">//[self.dataTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        [<span class="keyword">self</span>.dataTableView reloadData];</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">return</span> YES;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="interface_main_view_controller.html#ad288390ff98df8c1c6bfb220929a1aa5">  179</a></span>&#160;-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(<span class="keywordtype">id</span>)sender</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;{</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="comment">// set the TestTable instance data prior to pushing the view</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <span class="keywordflow">if</span>( [segue.identifier isEqualToString:<span class="stringliteral">@&quot;gotoEdit&quot;</span>] )</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    {</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <a class="code" href="interface_add_data_view_controller.html">AddDataViewController</a> *advc = [segue destinationViewController];</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        advc.<a class="code" href="interface_add_data_view_controller.html#a7109b471d0ab88858f6eafa1d0b4656f">testEntry</a> = [[<a class="code" href="interface_test_table.html">TestTable</a> alloc] initWithId:self.selectedId];</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#pragma mark - App-specific methods for drawing the views</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="interface_main_view_controller.html#ae6c97f61e09d6af7b6e3f4e249b8d98c">  194</a></span>&#160;-(NSMutableArray *)getAllEntries:(BOOL)forceRefresh</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;{</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    NSMutableArray *returnValue = [[NSMutableArray alloc] initWithCapacity:0];</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">if</span>( forceRefresh || <span class="keyword">self</span>.<a class="code" href="interface_main_view_controller.html#ab9877bb887be41af4a296fbc66b2ea19">allEntries</a> == nil )</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    {</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        returnValue = [<a class="code" href="interface_test_table.html">TestTable</a> <a class="code" href="interface_test_table.html#ae4862b4062620abc5d810703df4dde94">getAllEntries</a>];</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    {</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        returnValue = <span class="keyword">self</span>.allEntries;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">return</span> returnValue;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        [<span class="keyword">self</span>.dataTableView reloadData];</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;{</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">return</span> YES;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="interface_main_view_controller.html#ad288390ff98df8c1c6bfb220929a1aa5">  176</a></span>&#160;-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(<span class="keywordtype">id</span>)sender</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;{</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="comment">// set the TestTable instance data prior to pushing the view</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span>( [segue.identifier isEqualToString:<span class="stringliteral">@&quot;gotoEdit&quot;</span>] )</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="interface_add_data_view_controller.html">AddDataViewController</a> *advc = [segue destinationViewController];</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        advc.<a class="code" href="interface_add_data_view_controller.html#a7109b471d0ab88858f6eafa1d0b4656f">testEntry</a> = [[<a class="code" href="interface_test_table.html">TestTable</a> alloc] initWithId:self.selectedId];</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;}</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#pragma mark - App-specific methods for drawing the views</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="interface_main_view_controller.html#ae6c97f61e09d6af7b6e3f4e249b8d98c">  191</a></span>&#160;-(NSMutableArray *)getAllEntries:(BOOL)forceRefresh</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;{</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    NSMutableArray *returnValue;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span>( forceRefresh || <span class="keyword">self</span>.<a class="code" href="interface_main_view_controller.html#ab9877bb887be41af4a296fbc66b2ea19">allEntries</a> == nil )</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        returnValue = [<a class="code" href="interface_test_table.html">TestTable</a> <a class="code" href="interface_test_table.html#ae4862b4062620abc5d810703df4dde94">getAllEntries</a>];</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        returnValue = <span class="keyword">self</span>.allEntries;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">return</span> returnValue;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;}</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">@end</span></div>
 <div class="ttc" id="interface_main_view_controller_html_ab9877bb887be41af4a296fbc66b2ea19"><div class="ttname"><a href="interface_main_view_controller.html#ab9877bb887be41af4a296fbc66b2ea19">MainViewController::allEntries</a></div><div class="ttdeci">NSMutableArray * allEntries</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_controller_8h_source.html#l00035">MainViewController.h:35</a></div></div>
-<div class="ttc" id="interface_main_view_controller_html_ae6c97f61e09d6af7b6e3f4e249b8d98c"><div class="ttname"><a href="interface_main_view_controller.html#ae6c97f61e09d6af7b6e3f4e249b8d98c">-[MainViewController getAllEntries:]</a></div><div class="ttdeci">NSMutableArray * getAllEntries:(BOOL forceRefresh)</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_controller_8m_source.html#l00194">MainViewController.m:194</a></div></div>
+<div class="ttc" id="interface_main_view_controller_html_ae6c97f61e09d6af7b6e3f4e249b8d98c"><div class="ttname"><a href="interface_main_view_controller.html#ae6c97f61e09d6af7b6e3f4e249b8d98c">-[MainViewController getAllEntries:]</a></div><div class="ttdeci">NSMutableArray * getAllEntries:(BOOL forceRefresh)</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_controller_8m_source.html#l00191">MainViewController.m:191</a></div></div>
 <div class="ttc" id="interface_main_view_controller_html"><div class="ttname"><a href="interface_main_view_controller.html">MainViewController</a></div><div class="ttdef"><b>Definition:</b> <a href="_main_view_controller_8h_source.html#l00029">MainViewController.h:29</a></div></div>
 <div class="ttc" id="_main_view_controller_8h_html"><div class="ttname"><a href="_main_view_controller_8h.html">MainViewController.h</a></div></div>
 <div class="ttc" id="interface_add_data_view_controller_html_a7109b471d0ab88858f6eafa1d0b4656f"><div class="ttname"><a href="interface_add_data_view_controller.html#a7109b471d0ab88858f6eafa1d0b4656f">AddDataViewController::testEntry</a></div><div class="ttdeci">TestTable * testEntry</div><div class="ttdef"><b>Definition:</b> <a href="_add_data_view_controller_8h_source.html#l00035">AddDataViewController.h:35</a></div></div>
 <div class="ttc" id="interface_main_view_controller_html_a1d21a9104e43e9432c0493923bc79f0d"><div class="ttname"><a href="interface_main_view_controller.html#a1d21a9104e43e9432c0493923bc79f0d">-[MainViewController viewDidLoad]</a></div><div class="ttdeci">void viewDidLoad()</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_controller_8m_source.html#l00052">MainViewController.m:52</a></div></div>
 <div class="ttc" id="interface_main_view_controller_html_a4d382e1e894bd282eb1ccd97a4122515"><div class="ttname"><a href="interface_main_view_controller.html#a4d382e1e894bd282eb1ccd97a4122515">MainViewController::selectedId</a></div><div class="ttdeci">NSInteger selectedId</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_controller_8h_source.html#l00045">MainViewController.h:45</a></div></div>
-<div class="ttc" id="interface_test_table_html_ae4862b4062620abc5d810703df4dde94"><div class="ttname"><a href="interface_test_table.html#ae4862b4062620abc5d810703df4dde94">+[TestTable getAllEntries]</a></div><div class="ttdeci">NSMutableArray * getAllEntries()</div><div class="ttdef"><b>Definition:</b> <a href="_test_table_8m_source.html#l00071">TestTable.m:71</a></div></div>
+<div class="ttc" id="interface_test_table_html_ae4862b4062620abc5d810703df4dde94"><div class="ttname"><a href="interface_test_table.html#ae4862b4062620abc5d810703df4dde94">+[TestTable getAllEntries]</a></div><div class="ttdeci">NSMutableArray * getAllEntries()</div><div class="ttdef"><b>Definition:</b> <a href="_test_table_8m_source.html#l00072">TestTable.m:72</a></div></div>
 <div class="ttc" id="_add_data_view_controller_8h_html"><div class="ttname"><a href="_add_data_view_controller_8h.html">AddDataViewController.h</a></div></div>
 <div class="ttc" id="interface_test_table_html_aa78c8a209d3319e7ab949775d519b716"><div class="ttname"><a href="interface_test_table.html#aa78c8a209d3319e7ab949775d519b716">TestTable::readableTime</a></div><div class="ttdeci">NSString * readableTime</div><div class="ttdef"><b>Definition:</b> <a href="_test_table_8h_source.html#l00060">TestTable.h:60</a></div></div>
 <div class="ttc" id="interface_add_data_view_controller_html"><div class="ttname"><a href="interface_add_data_view_controller.html">AddDataViewController</a></div><div class="ttdef"><b>Definition:</b> <a href="_add_data_view_controller_8h_source.html#l00029">AddDataViewController.h:29</a></div></div>
 <div class="ttc" id="interface_main_view_controller_html_a1b17d8aa63931640ae7e20f9bad5e7be"><div class="ttname"><a href="interface_main_view_controller.html#a1b17d8aa63931640ae7e20f9bad5e7be">-[MainViewController didReceiveMemoryWarning]</a></div><div class="ttdeci">void didReceiveMemoryWarning()</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_controller_8m_source.html#l00057">MainViewController.m:57</a></div></div>
 <div class="ttc" id="interface_test_table_html_acb9e19f860c1abfc22d7570f2871848f"><div class="ttname"><a href="interface_test_table.html#acb9e19f860c1abfc22d7570f2871848f">TestTable::strField</a></div><div class="ttdeci">NSString * strField</div><div class="ttdef"><b>Definition:</b> <a href="_test_table_8h_source.html#l00045">TestTable.h:45</a></div></div>
 <div class="ttc" id="interface_test_table_html"><div class="ttname"><a href="interface_test_table.html">TestTable</a></div><div class="ttdef"><b>Definition:</b> <a href="_test_table_8h_source.html#l00030">TestTable.h:30</a></div></div>
-<div class="ttc" id="interface_test_table_html_a9fef72f8edc9fc48a48b45f3b7d2e770"><div class="ttname"><a href="interface_test_table.html#a9fef72f8edc9fc48a48b45f3b7d2e770">+[TestTable deleteWithPrimaryKey:]</a></div><div class="ttdeci">void deleteWithPrimaryKey:(NSInteger primaryKey)</div><div class="ttdef"><b>Definition:</b> <a href="_test_table_8m_source.html#l00161">TestTable.m:161</a></div></div>
+<div class="ttc" id="interface_test_table_html_a9fef72f8edc9fc48a48b45f3b7d2e770"><div class="ttname"><a href="interface_test_table.html#a9fef72f8edc9fc48a48b45f3b7d2e770">+[TestTable deleteWithPrimaryKey:]</a></div><div class="ttdeci">void deleteWithPrimaryKey:(NSInteger primaryKey)</div><div class="ttdef"><b>Definition:</b> <a href="_test_table_8m_source.html#l00162">TestTable.m:162</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9372cde6d83ab2134293e8883264b176.html">AiDB</a></li><li class="navelem"><a class="el" href="_main_view_controller_8m.html">MainViewController.m</a></li>
-    <li class="footer">Generated on Mon Dec 30 2013 03:52:33 for AiDB by
+    <li class="footer">Generated on Mon Dec 30 2013 16:52:50 for AiDB by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

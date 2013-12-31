@@ -59,9 +59,12 @@
 // Test initializing an AiDatabae object and its members
 - (void)test_init
 {
-    XCTAssertTrue( [self.db isKindOfClass:[AiDatabase class]] );
-    XCTAssertTrue( self.db.rowCount == 0 );
-    XCTAssertTrue( self.db.columnCount == 0 );
+    NSString *condition = [NSString stringWithFormat:@"db was kindOfClass %@, but %@ was expected", [self.db class], [AiDatabase class]];
+    XCTAssertTrue( [self.db isKindOfClass:[AiDatabase class]], @"%@ %@", self.failureMsg, condition );
+    condition = [NSString stringWithFormat:@"Got row count of %li, but expected 0", (long)self.db.rowCount];
+    XCTAssertTrue( self.db.rowCount == 0, @"%@ %@", self.failureMsg, condition );
+    condition = [NSString stringWithFormat:@"Got column count of %li, but expected 0", (long)self.db.columnCount];
+    XCTAssertTrue( self.db.columnCount == 0, @"%@ %@", self.failureMsg, condition );
 }
 
 // Test inserting a blank record into a table
@@ -206,7 +209,7 @@
     
     NSMutableDictionary *row = [result objectAtIndex:0];
     
-    condition = [NSString stringWithFormat:@"str_field was %@, expected empty string", [row objectForKey:@"queryInt"] ];
+    condition = [NSString stringWithFormat:@"return value was %@, expected empty string", [row objectForKey:@"queryInt"] ];
     XCTAssertTrue( ([[row objectForKey:@"queryInt"] isEqualToString:@""]), @"%@ %@", self.failureMsg, condition );
 }
 
@@ -547,7 +550,7 @@
     NSMutableDictionary *row = [result objectAtIndex:0];
     
     // make sure that we have one record with version number 2 before continuing
-    NSString *condition = [NSString stringWithFormat:@"Got version count %li but expected 1", [[row objectForKey:@"count"] integerValue]];
+    NSString *condition = [NSString stringWithFormat:@"Got version count %li but expected 1", (long)[[row objectForKey:@"count"] integerValue]];
     XCTAssertTrue( ([[row objectForKey:@"count"] integerValue] == 1), @"%@ %@", self.failureMsg, condition );
     
     // get the updated timestamp for later comparison
@@ -555,7 +558,7 @@
     result = [db query:sql];
     row = [result objectAtIndex:0];
     NSInteger originalTime = [[row objectForKey:@"update_time"] integerValue];
-    condition = [NSString stringWithFormat:@"Got original time %li but expected > 0", originalTime];
+    condition = [NSString stringWithFormat:@"Got original time %li but expected > 0", (long)originalTime];
     XCTAssertTrue( (originalTime > 0), @"%@ %@", self.failureMsg, condition );
     
     // record a new schema version
@@ -565,7 +568,7 @@
     result = [db query:sql];
     row = [result objectAtIndex:0];
     
-    condition = [NSString stringWithFormat:@"Got version count %li but expected 1", [[row objectForKey:@"count"] integerValue]];
+    condition = [NSString stringWithFormat:@"Got version count %li but expected 1", (long)[[row objectForKey:@"count"] integerValue]];
     XCTAssertTrue( ([[row objectForKey:@"count"] integerValue] == 1), @"%@ %@", self.failureMsg, condition );
     
     // during tests, these times may get updated more than once, so we will allow a new time that is >= the original
@@ -573,7 +576,7 @@
     result = [db query:sql];
     row = [result objectAtIndex:0];
     NSInteger updatedTime = [[row objectForKey:@"update_time"] integerValue];
-    condition = [NSString stringWithFormat:@"Got updated time %li but it was not >= %li", updatedTime, originalTime];
+    condition = [NSString stringWithFormat:@"Got updated time %li but it was not >= %li", (long)updatedTime, (long)originalTime];
     XCTAssertTrue( (updatedTime >= originalTime), @"%@ %@", self.failureMsg, condition );
 }
 

@@ -189,8 +189,8 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Checks user input for valid values</p>
-<p>For the test app, this only validates that the str_field input has been provided.</p>
-<p>The caller should handle errors.</p>
+<p>For the test app, this only validates that the str_field input has been provided and that a non-zero primary key is already in the database.</p>
+<p>The caller should handle pushing error messages to the user.</p>
 <dl class="section return"><dt>Returns</dt><dd>"ok" if input checks pass. A string with the error message otherwise. </dd></dl>
 <dl class="section since"><dt>Since</dt><dd>20131221 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>costmo</dd></dl>
@@ -227,7 +227,7 @@ Properties</h2></td></tr>
 </dl>
 <p>Remove an entry from the table </p>
 
-<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00161">161</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
+<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00162">162</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
 
 </div>
 </div>
@@ -250,7 +250,7 @@ Properties</h2></td></tr>
 <p>Get an array of all entries from the table</p>
 <p>NSMutableArray *entries = [<a class="el" href="interface_test_table.html">TestTable</a> getAllEntries]; <a class="el" href="interface_test_table.html">TestTable</a> *entry = [entries objectAtIndex:0]; NSString *showString = entry.strField; </p>
 
-<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00071">71</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
+<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00072">72</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
 
 </div>
 </div>
@@ -270,10 +270,10 @@ Properties</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>An NSMutableDictionary of key/value pairs </dd></dl>
 <dl class="section since"><dt>Since</dt><dd>20131221 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>costmo</dd></dl>
-<p>Get default values in case the record is not found</p>
+<p>Get default values in case the record is not found.</p>
 <p>NSMutableDictionary *defaultValues = [<a class="el" href="interface_test_table.html">TestTable</a> getDefaultValues]; NSString *defaultString = [defaultValues objectForKey:"strField"]; </p>
 
-<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00095">95</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
+<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00096">96</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
 
 </div>
 </div>
@@ -333,7 +333,7 @@ Properties</h2></td></tr>
 <p>Verify that the ID is an object in the database</p>
 <p>BOOL isValid = [<a class="el" href="interface_test_table.html">TestTable</a> isValidId:3]; </p>
 
-<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00113">113</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
+<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00114">114</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
 
 </div>
 </div>
@@ -350,12 +350,13 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Saves the current instance's member variables into the database. Assumes that input checking has already been performed.</p>
+<p>If the current instance's ID is zero, this will create a new record, otherwise, it updates the record with the given ID.</p>
 <dl class="section since"><dt>Since</dt><dd>20131221 </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>costmo</dd></dl>
 <p>Save member varoable values into the database</p>
 <p>[currentInstance save]; </p>
 
-<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00135">135</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
+<p>Definition at line <a class="el" href="_test_table_8m_source.html#l00136">136</a> of file <a class="el" href="_test_table_8m_source.html">TestTable.m</a>.</p>
 
 </div>
 </div>
@@ -554,7 +555,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="interface_test_table.html">TestTable</a></li>
-    <li class="footer">Generated on Mon Dec 30 2013 03:52:33 for AiDB by
+    <li class="footer">Generated on Mon Dec 30 2013 16:52:50 for AiDB by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

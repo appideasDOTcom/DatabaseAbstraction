@@ -34,9 +34,9 @@
 /**
  * Checks user input for valid values
  *
- * For the test app, this only validates that the str_field input has been provided.
+ * For the test app, this only validates that the str_field input has been provided and that a non-zero primary key is already in the database.
  *
- * The caller should handle errors.
+ * The caller should handle pushing error messages to the user.
  *
  * @returns		"ok" if input checks pass. A string with the error message otherwise.
  * @since		20131221

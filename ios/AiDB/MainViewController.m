@@ -162,9 +162,6 @@
         
         [self.dataTableView deselectRowAtIndexPath:[self.dataTableView indexPathForSelectedRow] animated:YES];
         
-        // skip animation
-        //[self.dataTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
-        
         [self.dataTableView reloadData];
     }
     
@@ -193,7 +190,7 @@
  */
 -(NSMutableArray *)getAllEntries:(BOOL)forceRefresh
 {
-    NSMutableArray *returnValue = [[NSMutableArray alloc] initWithCapacity:0];
+    NSMutableArray *returnValue;
     
     if( forceRefresh || self.allEntries == nil )
     {

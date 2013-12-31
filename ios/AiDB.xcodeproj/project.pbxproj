@@ -30,6 +30,7 @@
 		EE3E06CC1866D0F000F5738D /* 1.sql in Resources */ = {isa = PBXBuildFile; fileRef = EE3E06CA1866D0F000F5738D /* 1.sql */; };
 		EE548CC4187175D30021F824 /* TestTable+Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = EE548CC3187175D30021F824 /* TestTable+Controller.m */; };
 		EE548CC618718AD60021F824 /* Storyboard_ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE548CC518718AD60021F824 /* Storyboard_ipad.storyboard */; };
+		EE548CC8187214860021F824 /* TestTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE548CC7187214860021F824 /* TestTableTests.m */; };
 		EE6DD289186703C700EC74F3 /* 2.sql in Resources */ = {isa = PBXBuildFile; fileRef = EE6DD288186703C700EC74F3 /* 2.sql */; };
 		EE85324918685359009FB1D8 /* AiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EE85324818685359009FB1D8 /* AiUtil.m */; };
 		EEDDFDE3186FF1C90054D6BC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEDDFDE1186FF1C90054D6BC /* MainViewController.m */; };
@@ -77,6 +78,7 @@
 		EE548CC2187175D30021F824 /* TestTable+Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestTable+Controller.h"; sourceTree = "<group>"; };
 		EE548CC3187175D30021F824 /* TestTable+Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TestTable+Controller.m"; sourceTree = "<group>"; };
 		EE548CC518718AD60021F824 /* Storyboard_ipad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard_ipad.storyboard; sourceTree = "<group>"; };
+		EE548CC7187214860021F824 /* TestTableTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableTests.m; sourceTree = "<group>"; };
 		EE6DD288186703C700EC74F3 /* 2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.sql; sourceTree = "<group>"; };
 		EE85324718685359009FB1D8 /* AiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AiUtil.h; sourceTree = "<group>"; };
 		EE85324818685359009FB1D8 /* AiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AiUtil.m; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				EE0C509018681AE3009D925F /* AiDatabaseTests.m */,
 				EE235FC0186D110A0010E1EA /* AiUtilTests.m */,
+				EE548CC7187214860021F824 /* TestTableTests.m */,
 				EE3E069C18655CDF00F5738D /* Supporting Files */,
 			);
 			path = AiDBTests;
@@ -391,6 +394,7 @@
 			files = (
 				EE3E06BE186624F800F5738D /* AiDatabase.m in Sources */,
 				EE0C509118681AE3009D925F /* AiDatabaseTests.m in Sources */,
+				EE548CC8187214860021F824 /* TestTableTests.m in Sources */,
 				EE235FC1186D110A0010E1EA /* AiUtilTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

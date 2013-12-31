@@ -37,9 +37,24 @@
 {
     NSString *returnValue = @"ok";
    
+    // Make sure the input string is not empty
     if( [self.strField length] < 1 )
     {
         returnValue = @"Input string must not be blank.";
+    }
+    
+    // If the primary key is not 0, make sure it exists in the database
+    if( self._id != 0 )
+    {
+        NSString *sql = [NSString stringWithFormat:@"SELECT COUNT(*) as count FROM test_table WHERE %@ = %li", _idField, (long)self._id];
+        NSMutableArray *result = [db query:sql];
+        NSMutableDictionary *record = [result objectAtIndex:0];
+        NSInteger count = [[record objectForKey:@"count"] integerValue];
+        
+        if( count < 1 )
+        {
+            returnValue = @"The ID (primary key) is not valid and this record cannot be saved.";
+        }
     }
     
     return returnValue;

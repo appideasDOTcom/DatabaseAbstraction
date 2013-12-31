@@ -35,9 +35,10 @@
  */
 -(id)initWithId:(NSInteger)primaryKey
 {
+    self = [super init];
     self.db = [[AiDatabase alloc] init];
     
-    NSMutableDictionary *row = [[NSMutableDictionary alloc] initWithCapacity:6];
+    NSMutableDictionary *row;
     
     if( [TestTable isValidId:primaryKey] )
     {
@@ -87,7 +88,7 @@
 }
 
 /**
- * Get default values in case the record is not found
+ * Get default values in case the record is not found.
  *
  * NSMutableDictionary *defaultValues = [TestTable getDefaultValues];
  * NSString *defaultString = [defaultValues objectForKey:@"strField"];

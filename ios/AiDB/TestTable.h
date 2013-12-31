@@ -120,6 +120,8 @@
 /**
  * Saves the current instance's member variables into the database. Assumes that input checking has already been performed.
  *
+ * If the current instance's ID is zero, this will create a new record, otherwise, it updates the record with the given ID.
+ *
  * @since		20131221
  * @author		costmo
  */

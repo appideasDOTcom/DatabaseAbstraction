@@ -115,24 +115,41 @@ $(document).ready(function(){initNavTree('_test_table_09_controller_8m_source.ht
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    NSString *returnValue = <span class="stringliteral">@&quot;ok&quot;</span>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;   </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span>( [<span class="keyword">self</span>.strField length] &lt; 1 )</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        returnValue = <span class="stringliteral">@&quot;Input string must not be blank.&quot;</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span> returnValue;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">@end</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Make sure the input string is not empty</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span>( [<span class="keyword">self</span>.strField length] &lt; 1 )</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        returnValue = <span class="stringliteral">@&quot;Input string must not be blank.&quot;</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// If the primary key is not 0, make sure it exists in the database</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span>( <span class="keyword">self</span>._id != 0 )</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        NSString *sql = [NSString stringWithFormat:@&quot;SELECT COUNT(*) as count FROM test_table WHERE %@ = %li&quot;, _idField, (long)self._id];</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        NSMutableArray *result = [<a class="code" href="interface_test_table.html#a4c6d87cfa7199a4acbfbef99578ffed1">db</a> <a class="code" href="interface_ai_database.html#ae249107f56680444151741066940ab8f">query</a>:sql];</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        NSMutableDictionary *record = [result objectAtIndex:0];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        NSInteger count = [[record objectForKey:@&quot;count&quot;] integerValue];</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span>( count &lt; 1 )</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            returnValue = <span class="stringliteral">@&quot;The ID (primary key) is not valid and this record cannot be saved.&quot;</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> returnValue;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">@end</span></div>
+<div class="ttc" id="interface_ai_database_html_ae249107f56680444151741066940ab8f"><div class="ttname"><a href="interface_ai_database.html#ae249107f56680444151741066940ab8f">-[AiDatabase query:]</a></div><div class="ttdeci">NSMutableArray * query:(NSString *sql)</div><div class="ttdef"><b>Definition:</b> <a href="_ai_database_8m_source.html#l00051">AiDatabase.m:51</a></div></div>
 <div class="ttc" id="category_test_table_07_controller_08_html"><div class="ttname"><a href="category_test_table_07_controller_08.html">TestTable(Controller)</a></div><div class="ttdef"><b>Definition:</b> <a href="_test_table_09_controller_8h_source.html#l00029">TestTable+Controller.h:29</a></div></div>
 <div class="ttc" id="_test_table_09_controller_8h_html"><div class="ttname"><a href="_test_table_09_controller_8h.html">TestTable+Controller.h</a></div></div>
+<div class="ttc" id="interface_test_table_html_a4c6d87cfa7199a4acbfbef99578ffed1"><div class="ttname"><a href="interface_test_table.html#a4c6d87cfa7199a4acbfbef99578ffed1">TestTable::db</a></div><div class="ttdeci">AiDatabase * db</div><div class="ttdef"><b>Definition:</b> <a href="_test_table_8h_source.html#l00070">TestTable.h:70</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_9372cde6d83ab2134293e8883264b176.html">AiDB</a></li><li class="navelem"><a class="el" href="_test_table_09_controller_8m.html">TestTable+Controller.m</a></li>
-    <li class="footer">Generated on Mon Dec 30 2013 03:52:33 for AiDB by
+    <li class="footer">Generated on Mon Dec 30 2013 16:52:50 for AiDB by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>
